@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CRESCER - Trabalho Decente</title>
+
+<style>
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f4f7fb;
+    color:#333;
+}
+
+/* MENU */
+
+header{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    background:#0d6efd;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,0.2);
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+}
+
+.logo{
+    color:white;
+    font-size:30px;
+    font-weight:bold;
+}
+
+nav ul{
+    display:flex;
+    list-style:none;
+    gap:25px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+nav a:hover{
+    color:#d4edda;
+}
+
+/* BANNER */
+
+.banner{
+    height:100vh;
+
+    background:
+    linear-gradient(rgba(0,0,0,0.6),
+    rgba(0,0,0,0.6)),
+    url('img/fachada.jpeg');
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+
+    color:white;
+    padding:20px;
+}
+
+.banner-content{
+    max-width:850px;
+    animation:fade 1.5s ease;
+}
+
+.banner h1{
+    font-size:60px;
+    margin-bottom:20px;
+}
+
+.banner p{
+    font-size:22px;
+    line-height:1.7;
+    margin-bottom:35px;
+}
+
+.btn{
+    background:#198754;
+    color:white;
+    text-decoration:none;
+    padding:15px 35px;
+    border-radius:8px;
+    font-weight:bold;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#157347;
+}
+
+/* SEÇÕES */
+
+section{
+    padding:100px 10%;
+}
+
+.titulo{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.titulo h2{
+    font-size:40px;
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+.titulo p{
+    color:#666;
+    font-size:18px;
+}
+
+/* SOBRE */
+
+.sobre{
+    background:white;
+}
+
+.sobre-container{
+    display:flex;
+    align-items:center;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+.sobre-texto{
+    flex:1;
+    min-width:300px;
+}
+
+.sobre-texto p{
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:20px;
+}
+
+.sobre-img{
+    flex:1;
+    min-width:300px;
+}
+
+.sobre-img img{
+    width:100%;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+}
+
+/* CARDS */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+    transition:0.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card-content{
+    padding:25px;
+}
+
+.card h3{
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+.card p{
+    line-height:1.6;
+}
+
+/* GALERIA */
+
+.galeria{
+    background:#eef4ff;
+}
+
+.galeria-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.galeria-grid img{
+    width:100%;
+    height:250px;
+    object-fit:cover;
+    border-radius:15px;
+    transition:0.4s;
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+}
+
+.galeria-grid img:hover{
+    transform:scale(1.03);
+}
+
+/* CONTATO */
+
+.contato{
+    background:white;
+    text-align:center;
+}
+
+.contato p{
+    font-size:20px;
+    margin-bottom:30px;
+}
+
+/* RODAPÉ */
+
+footer{
+    background:#0d6efd;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+/* ANIMAÇÃO */
+
+@keyframes fade{
+
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+
+}
+
+/* RESPONSIVO */
+
+@media(max-width:900px){
+
+    nav{
+        flex-direction:column;
+        gap:20px;
+    }
+
+    nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .banner h1{
+        font-size:40px;
+    }
+
+    .banner p{
+        font-size:18px;
+    }
+
+    .sobre-container{
+        flex-direction:column;
+    }
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<nav>
+
+<div class="logo">CRESCER</div>
+
+<ul>
+<li><a href="#inicio">Início</a></li>
+<li><a href="#sobre">Sobre</a></li>
+<li><a href="#cursos">Cursos</a></li>
+<li><a href="#espacos">Espaços</a></li>
+<li><a href="#galeria">Galeria</a></li>
+<li><a href="#contato">Contato</a></li>
+</ul>
+
+</nav>
+
+</header>
+
+<!-- BANNER -->
+
+<section class="banner" id="inicio">
+
+<div class="banner-content">
+
+<h1>Trabalho Decente e Crescimento Econômico</h1>
+
+<p>
+O CRESCER oferece apoio profissional,
+capacitação gratuita e incentivo ao crescimento
+de moradores do Jardim São Luís através
+de cursos, orientação e inclusão social.
+</p>
+
+<a href="#cursos" class="btn">
+Conhecer o Projeto
+</a>
+
+</div>
+
+</section>
+
+<!-- SOBRE -->
+
+<section class="sobre" id="sobre">
+
+<div class="titulo">
+
+<h2>Sobre o Projeto</h2>
+
+<p>Inclusão social através da educação e capacitação</p>
+
+</div>
+
+<div class="sobre-container">
+
+<div class="sobre-texto">
+
+<p>
+O projeto foi criado para ajudar jovens,
+profissionais estagnados e trabalhadores
+sobrecarregados que enfrentam dificuldades
+para conseguir oportunidades melhores.
+</p>
+
+<p>
+O CRESCER promove cursos gratuitos,
+orientação profissional e desenvolvimento
+humano, criando oportunidades reais
+para a comunidade.
+</p>
+
+<p>
+Além da capacitação, o ambiente do CRESCER
+é acolhedor, organizado e preparado
+para incentivar o crescimento pessoal
+e profissional dos participantes.
+</p>
+
+</div>
+
+<div class="sobre-img">
+
+<img src="img/exterior.jpeg" alt="Área externa">
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CURSOS -->
+
+<section id="cursos">
+
+<div class="titulo">
+
+<h2>Cursos Gratuitos</h2>
+
+<p>Capacitação profissional gratuita para a comunidade</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="img/saladeaula.jpeg" alt="Sala de aula">
+
+<div class="card-content">
+
+<h3>Informática Básica</h3>
+
+<p>
+Aprenda ferramentas importantes para o mercado
+de trabalho como pacote Office,
+internet e digitação.
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="img/saladeaula2.jpeg" alt="Curso profissional">
+
+<div class="card-content">
+
+<h3>Comunicação Profissional</h3>
+
+<p>
+Desenvolvimento de comunicação,
+postura profissional e trabalho em equipe.
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="img/alunos.jpeg" alt="Alunos do projeto">
+
+<div class="card-content">
+
+<h3>Preparação para Entrevistas</h3>
+
+<p>
+Treinamentos e orientações para entrevistas,
+currículos e primeiro emprego.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ESPAÇOS -->
+
+<section class="galeria" id="espacos">
+
+<div class="titulo">
+
+<h2>Espaços do CRESCER</h2>
+
+<p>Conheça os ambientes da instituição</p>
+
+</div>
+
+<div class="galeria-grid">
+
+<img src="img/fachada.jpeg" alt="Fachada">
+<img src="img/exterior.jpeg" alt="Área externa">
+<img src="img/exterior2.jpeg" alt="Área externa">
+<img src="img/cantina.jpeg" alt="Cantina">
+<img src="img/sala.jpeg" alt="Sala">
+<img src="img/sala1.jpeg" alt="Sala">
+<img src="img/sala2.jpeg" alt="Sala">
+<img src="img/sala3.jpeg" alt="Sala">
+<img src="img/horta.jpeg" alt="Horta">
+<img src="img/horta2.jpeg" alt="Horta">
+
+</div>
+
+</section>
+
+<!-- GALERIA -->
+
+<section id="galeria">
+
+<div class="titulo">
+
+<h2>Ambiente Acolhedor</h2>
+
+<p>O CRESCER promove inclusão, aprendizado e desenvolvimento</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<img src="img/alunos.jpeg" alt="Alunos">
+
+<div class="card-content">
+
+<h3>Inclusão Social</h3>
+
+<p>
+O projeto busca criar oportunidades reais
+para pessoas em situação de vulnerabilidade social.
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="img/horta.jpeg" alt="Horta comunitária">
+
+<div class="card-content">
+
+<h3>Horta Comunitária</h3>
+
+<p>
+A horta representa cooperação,
+trabalho em equipe e participação coletiva.
+</p>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<img src="img/cantina.jpeg" alt="Cantina">
+
+<div class="card-content">
+
+<h3>Espaços Organizados</h3>
+
+<p>
+O ambiente foi pensado para oferecer
+acolhimento, conforto e aprendizado.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTATO -->
+
+<section class="contato" id="contato">
+
+<div class="titulo">
+
+<h2>Contato</h2>
+
+<p>Participe do projeto e dos cursos gratuitos</p>
+
+</div>
+
+<p>
+Entre em contato pelo WhatsApp
+para obter mais informações.
+</p>
+
+<a href="https://wa.me/5511946155313" class="btn">
+Entrar em Contato
+</a>
+
+</section>
+
+<footer>
+
+<p>
+Projeto inspirado no ODS 8 —
+Trabalho Decente e Crescimento Econômico.
+</p>
+
+</footer>
+
+<script>
+
+/* MENU DINÂMICO */
+
+window.addEventListener("scroll", () => {
+
+    const header = document.querySelector("header");
+
+    if(window.scrollY > 50){
+
+        header.style.background = "#084298";
+
+    }else{
+
+        header.style.background = "#0d6efd";
+
+    }
+
+});
+
+/* ANIMAÇÃO DOS CARDS */
+
+const cards = document.querySelectorAll(".card");
+
+cards.forEach(card => {
+
+    card.addEventListener("mouseenter", () => {
+
+        card.style.boxShadow =
+        "0 10px 30px rgba(13,110,253,0.3)";
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.boxShadow =
+        "0 5px 20px rgba(0,0,0,0.1)";
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
