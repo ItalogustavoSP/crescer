@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Materiais para Download - CRESCER</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, 'Roboto', sans-serif;
+}
+
+body {
+    background: linear-gradient(145deg, #f8f9fa 0%, #ffffff 100%);
+    min-height: 100vh;
+}
+
+.hero {
+    background: linear-gradient(135deg, #dc3545 0%, #a71d2a 100%);
+    padding: 40px 8% 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "📄📊📁📈⚖️🎤";
+    position: absolute;
+    font-size: 180px;
+    opacity: 0.05;
+    bottom: -40px;
+    right: -20px;
+    pointer-events: none;
+    animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+.hero h1 {
+    font-size: 42px;
+    color: white;
+    margin-bottom: 12px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.hero h1 i {
+    margin-right: 12px;
+    font-size: 40px;
+    background: rgba(255,255,255,0.12);
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.hero p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.92);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.ods-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    padding: 8px 24px;
+    border-radius: 60px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 20px;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: 0.3s;
+}
+
+.ods-tag:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.02);
+}
+
+.container {
+    max-width: 1300px;
+    margin: -25px auto 0;
+    padding: 0 6% 50px;
+}
+
+.stats-ods {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 28px;
+    padding: 20px 35px;
+    text-align: center;
+    box-shadow: 0 10px 25px -8px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(220,53,69,0.1);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 35px -12px rgba(220,53,69,0.25);
+    border-color: rgba(220,53,69,0.3);
+}
+
+.stat-number {
+    font-size: 38px;
+    font-weight: 800;
+    color: #0a1a2a;
+    letter-spacing: -1px;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #6c757d;
+    font-weight: 600;
+    margin-top: 6px;
+}
+
+.search-wrapper {
+    background: white;
+    border-radius: 60px;
+    padding: 6px 6px 6px 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 550px;
+    margin: 0 auto 35px;
+    box-shadow: 0 8px 20px -6px rgba(0,0,0,0.08);
+    border: 1px solid #e9ecef;
+}
+
+.search-wrapper:focus-within {
+    box-shadow: 0 12px 28px -10px rgba(220,53,69,0.25);
+    border-color: #dc3545;
+}
+
+.search-wrapper i {
+    color: #dc3545;
+    font-size: 18px;
+}
+
+.search-wrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding: 14px 0;
+    background: transparent;
+    font-weight: 500;
+}
+
+.search-wrapper input::placeholder {
+    color: #adb5bd;
+    font-weight: 400;
+}
+
+.search-wrapper button {
+    background: linear-gradient(135deg, #0a1a2a, #062c5e);
+    border: none;
+    color: white;
+    padding: 10px 28px;
+    border-radius: 60px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-wrapper button:hover {
+    background: linear-gradient(135deg, #1a3a5c, #084298);
+    transform: scale(1.02);
+}
+
+.materiais-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 28px;
+    margin-bottom: 50px;
+}
+
+.material-card {
+    background: white;
+    border-radius: 28px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px -6px rgba(0,0,0,0.06);
+    border: 1px solid #eef3fc;
+    position: relative;
+}
+
+.material-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #dc3545, #0a1a2a);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.material-card:hover::before {
+    transform: scaleX(1);
+}
+
+.material-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 40px -16px rgba(220,53,69,0.25);
+    border-color: rgba(220,53,69,0.15);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #fafdff, #ffffff);
+    padding: 28px 0 15px;
+    text-align: center;
+}
+
+.card-icon {
+    font-size: 56px;
+    background: linear-gradient(145deg, #dc3545, #a71d2a);
+    display: inline-block;
+    width: 90px;
+    height: 90px;
+    line-height: 90px;
+    border-radius: 28px;
+    box-shadow: 0 8px 20px -6px rgba(220,53,69,0.4);
+}
+
+.badge-popular {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(220,53,69,0.12);
+    color: #a71d2a;
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.card-content {
+    padding: 8px 25px 25px;
+}
+
+.card-content h3 {
+    font-size: 22px;
+    color: #dc3545;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.card-content p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6c757d;
+    margin-bottom: 18px;
+}
+
+.meta-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    background: #f8f9fa;
+    padding: 10px 16px;
+    border-radius: 40px;
+    margin-bottom: 20px;
+}
+
+.meta-info i {
+    margin-right: 6px;
+    color: #0a1a2a;
+}
+
+.btn-download {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #0a1a2a, #062c5e);
+    color: white;
+    text-decoration: none;
+    padding: 14px 24px;
+    margin: 0 25px 25px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s;
+    font-size: 15px;
+}
+
+.btn-download:hover {
+    background: linear-gradient(135deg, #1a3a5c, #084298);
+    gap: 18px;
+    transform: scale(1.02);
+}
+
+.result-count {
+    text-align: center;
+    margin: 20px 0 30px;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.result-count span {
+    font-weight: 700;
+    color: #0a1a2a;
+    font-size: 18px;
+}
+
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #0a1a2a;
+    color: white;
+    text-decoration: none;
+    padding: 14px 36px;
+    border-radius: 60px;
+    font-weight: 600;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.btn-voltar:hover {
+    background: #dc3545;
+    gap: 16px;
+    transform: translateY(-2px);
+}
+
+footer {
+    background: linear-gradient(135deg, #0a1a2a, #061220);
+    color: #c8e6d9;
+    text-align: center;
+    padding: 40px 8% 35px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin-bottom: 14px;
+    font-size: 13px;
+}
+
+footer a {
+    color: #dc3545;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+footer a:hover {
+    color: #ff6b7a;
+}
+
+.hidden-card {
+    display: none;
+}
+
+.toast-message {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #dc3545;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+    font-weight: 500;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateX(120px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@media (max-width: 750px) {
+    .hero h1 { font-size: 32px; }
+    .hero h1 i { font-size: 32px; }
+    .stat-card { padding: 15px 25px; }
+    .materiais-grid { gap: 20px; }
+    .card-icon { width: 70px; height: 70px; line-height: 70px; font-size: 42px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+    <h1><i class="fas fa-download"></i> Central de Materiais</h1>
+    <p>Recursos 100% gratuitos para você conquistar um trabalho decente<br>e crescer profissionalmente.</p>
+    <div class="ods-tag">
+        <i class="fas fa-globe-americas"></i> ODS 8 – Trabalho Decente e Crescimento Econômico
+    </div>
+</div>
+
+    <div class="search-wrapper">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchInput" placeholder="Buscar material... (currículo, feedback, direitos)">
+        <button onclick="filtrarMateriais()"><i class="fas fa-filter"></i> Filtrar</button>
+    </div>
+
+    <div id="resultCount" class="result-count">
+        Mostrando <span id="visibleCount">5</span> de <span id="totalCount">5</span> materiais
+    </div>
+
+    <div class="materiais-grid" id="materiaisGrid">
+        <div class="material-card" data-search="curriculo modelo primeiro emprego">
+            <div class="card-header"><div class="card-icon">📄</div><div class="badge-popular"><i class="fas fa-fire"></i> + Popular</div></div>
+            <div class="card-content"><h3>Modelo de Currículo</h3><p>Template simples e profissional. Basta preencher com seus dados, cursos e objetivos.</p><div class="meta-info"><span><i class="fas fa-file-pdf"></i> PDF • 1 página</span><span><i class="fas fa-download"></i> 124 downloads</span></div></div>
+            <a href="MODELO DE CURRICULO.pdf" class="btn-download" download><i class="fas fa-download"></i> Baixar PDF</a>
+        </div>
+
+        <div class="material-card" data-search="entrevista emprego roteiro perguntas">
+            <div class="card-header"><div class="card-icon">🎤</div></div>
+            <div class="card-content"><h3>Roteiro para Entrevista</h3><p>Perguntas mais comuns e exemplos de respostas para você se preparar com confiança.</p><div class="meta-info"><span><i class="fas fa-file-pdf"></i> PDF • 1 página</span><span><i class="fas fa-download"></i> 98 downloads</span></div></div>
+            <a href="ROTEIRO PARA ENTREVISTA.pdf" class="btn-download" download><i class="fas fa-download"></i> Baixar PDF</a>
+        </div>
+
+        <div class="material-card" data-search="direitos trabalhistas carteira fgts ferias">
+            <div class="card-header"><div class="card-icon">⚖️</div><div class="badge-popular"><i class="fas fa-shield-alt"></i> Essencial</div></div>
+            <div class="card-content"><h3>Cartilha de Direitos Trabalhistas</h3><p>Carteira assinada, FGTS, 13º, férias, hora extra — saiba o que é seu por direito.</p><div class="meta-info"><span><i class="fas fa-file-pdf"></i> PDF • 1 página</span><span><i class="fas fa-download"></i> 87 downloads</span></div></div>
+            <a href="CARTILHA DE DIREITOS TRABALHISTAS.pdf" class="btn-download" download><i class="fas fa-download"></i> Baixar PDF</a>
+        </div>
+
+        <div class="material-card" data-search="pdi plano desenvolvimento carreira metas">
+            <div class="card-header"><div class="card-icon">📈</div></div>
+            <div class="card-content"><h3>Modelo de PDI (Plano de Desenvolvimento)</h3><p>Defina metas profissionais de 6 meses, 1 ano e 2 anos para crescer na carreira.</p><div class="meta-info"><span><i class="fas fa-file-pdf"></i> PDF • 2 páginas</span><span><i class="fas fa-download"></i> 64 downloads</span></div></div>
+            <a href="MODELO DE PDI (PLANO DE DESENVOLVIMENTO INDIVIDUAL).pdf" class="btn-download" download><i class="fas fa-download"></i> Baixar PDF</a>
+        </div>
+
+        <div class="material-card" data-search="feedback 1-1 reunião gestor">
+            <div class="card-header"><div class="card-icon">💬</div><div class="badge-popular"><i class="fas fa-star"></i> Recomendado</div></div>
+            <div class="card-content"><h3>Guia de Feedback 1-1</h3><p>Como pedir, dar e receber feedback para melhorar seu desempenho profissional.</p><div class="meta-info"><span><i class="fas fa-file-pdf"></i> PDF • 1 página</span><span><i class="fas fa-download"></i> 53 downloads</span></div></div>
+            <a href="GUIA DE FEEDBACK 1-1.pdf" class="btn-download" download><i class="fas fa-download"></i> Baixar PDF</a>
+        </div>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="index.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar para o site</a>
+    </div>
+</div>
+
+<footer>
+    <p><i class="fas fa-hand-holding-heart"></i> Materiais gratuitos — Comunidade do Jardim São Luis</p>
+    <p>📌 Projeto alinhado ao <strong>ODS 8 (Trabalho Decente e Crescimento Econômico)</strong> | CRESCER</p>
+    <p><a href="https://wa.me/5511946155313" target="_blank"><i class="fab fa-whatsapp"></i> Dúvidas? Fale conosco</a></p>
+</footer>
+
+<script>
+    function filtrarMateriais() {
+        const termo = document.getElementById('searchInput').value.toLowerCase();
+        const cards = document.querySelectorAll('.material-card');
+        let visiveis = 0;
+        cards.forEach(card => {
+            const textoBusca = card.getAttribute('data-search') || '';
+            if (textoBusca.includes(termo) || termo === '') {
+                card.classList.remove('hidden-card');
+                visiveis++;
+            } else {
+                card.classList.add('hidden-card');
+            }
+        });
+        document.getElementById('visibleCount').innerText = visiveis;
+    }
+    document.getElementById('searchInput').addEventListener('keyup', filtrarMateriais);
+    function mostrarAlerta(mensagem) {
+        const toast = document.createElement('div');
+        toast.className = 'toast-message';
+        toast.innerHTML = `<i class="fas fa-check-circle"></i> ${mensagem}`;
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+    }
+    document.querySelectorAll('.btn-download').forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            const card = this.closest('.material-card');
+            const nomeArquivo = card.querySelector('h3').innerText;
+            mostrarAlerta(`Download iniciado: ${nomeArquivo}`);
+        });
+    });
+</script>
+</body>
+</html>

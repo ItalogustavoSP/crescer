@@ -3,646 +3,605 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>CRESCER - Trabalho Decente</title>
-
+<meta name="description" content="CRESCER - Centro Rotário Educacional, Social, Cultural e Recreativo. Capacitação gratuita e trabalho decente no Jardim São Luis.">
+<title>CRESCER - Trabalho Decente e Crescimento Econômico</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 <style>
 
 /* RESET */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, Helvetica, sans-serif;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, 'Roboto', sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    background:#f4f7fb;
-    color:#333;
+body {
+    background: linear-gradient(145deg, #f8f9fa 0%, #ffffff 100%);
+    color: #1a2a3a;
 }
 
-/* MENU */
-
-header{
-    width:100%;
-    position:fixed;
-    top:0;
-    left:0;
-    background:#0d6efd;
-    z-index:1000;
-    box-shadow:0 2px 10px rgba(0,0,0,0.2);
+/* MENU PREMIUM */
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #dc3545;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
 }
 
-nav{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 8%;
+header.scrolled {
+    background: rgba(220, 53, 69, 0.95);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
-.logo{
-    color:white;
-    font-size:30px;
-    font-weight:bold;
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    flex-wrap: wrap;
+    gap: 15px;
 }
 
-nav ul{
-    display:flex;
-    list-style:none;
-    gap:25px;
+.logo {
+    display: flex;
+    align-items: center;
 }
 
-nav a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    transition:0.3s;
+.logo img {
+    height: 55px;
+    width: auto;
+    transition: 0.3s;
 }
 
-nav a:hover{
-    color:#d4edda;
+.logo img:hover {
+    transform: scale(1.02);
+    filter: brightness(1.05);
 }
 
-/* BANNER */
-
-.banner{
-    height:100vh;
-
-    background:
-    linear-gradient(rgba(0,0,0,0.6),
-    rgba(0,0,0,0.6)),
-    url('img/fachada.jpeg');
-
-    background-size:cover;
-    background-position:center;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-
-    color:white;
-    padding:20px;
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 28px;
+    flex-wrap: wrap;
 }
 
-.banner-content{
-    max-width:850px;
-    animation:fade 1.5s ease;
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    font-size: 15px;
+    padding: 6px 0;
+    position: relative;
 }
 
-.banner h1{
-    font-size:60px;
-    margin-bottom:20px;
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2.5px;
+    background: #0a1a2a;
+    transition: width 0.3s ease;
+    border-radius: 2px;
 }
 
-.banner p{
-    font-size:22px;
-    line-height:1.7;
-    margin-bottom:35px;
+nav a:hover::after {
+    width: 100%;
 }
 
-.btn{
-    background:#198754;
-    color:white;
-    text-decoration:none;
-    padding:15px 35px;
-    border-radius:8px;
-    font-weight:bold;
-    transition:0.3s;
+nav a:hover {
+    color: #0a1a2a;
+    transform: translateY(-2px);
 }
 
-.btn:hover{
-    background:#157347;
+/* BANNER HERO - SEM LUZ BRANCA */
+.banner {
+    height: 100vh;
+    background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url('img/fachada.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    position: relative;
+}
+
+.banner-content {
+    max-width: 850px;
+    animation: fadeInUp 1s ease;
+    position: relative;
+    z-index: 2;
+}
+
+.banner h1 {
+    font-size: 62px;
+    margin-bottom: 20px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.banner p {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.5);
+}
+
+.btn {
+    background: linear-gradient(135deg, #0a1a2a, #062c5e);
+    color: white;
+    text-decoration: none;
+    padding: 16px 42px;
+    border-radius: 50px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.25);
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    transform: translateY(-4px);
+    gap: 18px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #1a3a5c, #084298);
 }
 
 /* SEÇÕES */
-
-section{
-    padding:100px 10%;
+section {
+    padding: 90px 8%;
+    position: relative;
 }
 
-.titulo{
-    text-align:center;
-    margin-bottom:50px;
+.titulo {
+    text-align: center;
+    margin-bottom: 55px;
 }
 
-.titulo h2{
-    font-size:40px;
-    color:#0d6efd;
-    margin-bottom:15px;
+.titulo h2 {
+    font-size: 44px;
+    color: #dc3545;
+    margin-bottom: 12px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    position: relative;
+    display: inline-block;
 }
 
-.titulo p{
-    color:#666;
-    font-size:18px;
+.titulo h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #dc3545, #0a1a2a);
+    border-radius: 4px;
+}
+
+.titulo p {
+    color: #6c757d;
+    font-size: 18px;
+    margin-top: 20px;
 }
 
 /* SOBRE */
-
-.sobre{
-    background:white;
+.sobre {
+    background: white;
+    border-radius: 40px;
+    margin: 0 8% 30px 8%;
+    width: auto;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.05);
 }
 
-.sobre-container{
-    display:flex;
-    align-items:center;
-    gap:40px;
-    flex-wrap:wrap;
+.sobre-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
 }
 
-.sobre-texto{
-    flex:1;
-    min-width:300px;
+.sobre-texto {
+    flex: 1;
+    min-width: 300px;
 }
 
-.sobre-texto p{
-    font-size:18px;
-    line-height:1.8;
-    margin-bottom:20px;
+.sobre-texto p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    color: #2c3e50;
 }
 
-.sobre-img{
-    flex:1;
-    min-width:300px;
+.sobre-texto i {
+    margin-right: 10px;
 }
 
-.sobre-img img{
-    width:100%;
-    border-radius:15px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.2);
+.sobre-img {
+    flex: 1;
+    min-width: 300px;
+}
+
+.sobre-img img {
+    width: 100%;
+    border-radius: 28px;
+    box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+    transition: 0.4s ease;
+}
+
+.sobre-img img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 25px 45px -12px rgba(0,0,0,0.25);
 }
 
 /* CARDS */
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
 }
 
-.card{
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 5px 20px rgba(0,0,0,0.1);
-    transition:0.4s;
+.card {
+    background: white;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px -12px rgba(0,0,0,0.1);
+    transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+    border: 1px solid #eef3fc;
+    position: relative;
 }
 
-.card:hover{
-    transform:translateY(-10px);
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #dc3545, #0a1a2a);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
 }
 
-.card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
+.card:hover::before {
+    transform: scaleX(1);
 }
 
-.card-content{
-    padding:25px;
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 35px 50px -20px rgba(220, 53, 69, 0.3);
+    border-color: rgba(220, 53, 69, 0.2);
 }
 
-.card h3{
-    color:#0d6efd;
-    margin-bottom:15px;
+.card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    transition: 0.5s ease;
 }
 
-.card p{
-    line-height:1.6;
+.card:hover img {
+    transform: scale(1.06);
 }
 
-/* GALERIA */
-
-.galeria{
-    background:#eef4ff;
+.card-content {
+    padding: 28px;
 }
 
-.galeria-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:20px;
+.card h3 {
+    color: #dc3545;
+    margin-bottom: 12px;
+    font-size: 22px;
 }
 
-.galeria-grid img{
-    width:100%;
-    height:250px;
-    object-fit:cover;
-    border-radius:15px;
-    transition:0.4s;
-    box-shadow:0 5px 15px rgba(0,0,0,0.15);
+.card h3 i {
+    margin-right: 10px;
 }
 
-.galeria-grid img:hover{
-    transform:scale(1.03);
+.card p {
+    line-height: 1.6;
+    color: #6c757d;
 }
 
 /* CONTATO */
-
-.contato{
-    background:white;
-    text-align:center;
+.contato {
+    background: white;
+    text-align: center;
+    border-radius: 40px;
+    margin: 30px 8%;
+    width: auto;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.05);
 }
 
-.contato p{
-    font-size:20px;
-    margin-bottom:30px;
+.contato p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+.contato-endereco {
+    margin: 20px 0;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    display: inline-block;
+    text-align: left;
+}
+
+.contato-endereco p {
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.contato-endereco i {
+    width: 25px;
+    color: #dc3545;
+}
+
+.contato-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+.btn-maps {
+    background: linear-gradient(135deg, #4285F4, #3367D6);
+}
+
+.btn-maps:hover {
+    background: linear-gradient(135deg, #5a95f5, #2a56c6);
 }
 
 /* RODAPÉ */
-
-footer{
-    background:#0d6efd;
-    color:white;
-    text-align:center;
-    padding:30px;
+footer {
+    background: linear-gradient(135deg, #0a1a2a, #061220);
+    color: #c8e6d9;
+    text-align: center;
+    padding: 50px 8% 40px;
+    margin-top: 20px;
 }
 
-/* ANIMAÇÃO */
+footer p {
+    margin-bottom: 18px;
+    font-size: 14px;
+}
 
-@keyframes fade{
+footer a {
+    color: #dc3545;
+    text-decoration: none;
+    transition: 0.2s;
+}
 
-    from{
-        opacity:0;
-        transform:translateY(40px);
+footer a:hover {
+    color: #ff6b7a;
+    text-decoration: underline;
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
     }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
-
 }
 
 /* RESPONSIVO */
-
-@media(max-width:900px){
-
-    nav{
-        flex-direction:column;
-        gap:20px;
+@media (max-width: 900px) {
+    nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 8%;
     }
-
-    nav ul{
-        flex-wrap:wrap;
-        justify-content:center;
+    nav ul {
+        justify-content: center;
+        gap: 18px;
     }
-
-    .banner h1{
-        font-size:40px;
+    .banner h1 {
+        font-size: 38px;
     }
-
-    .banner p{
-        font-size:18px;
+    .banner p {
+        font-size: 16px;
     }
-
-    .sobre-container{
-        flex-direction:column;
+    .sobre-container {
+        flex-direction: column;
     }
-
+    .titulo h2 {
+        font-size: 32px;
+    }
+    section {
+        padding: 60px 5%;
+    }
+    .sobre, .contato {
+        margin: 0 5% 20px 5%;
+    }
+    .logo img {
+        height: 45px;
+    }
 }
 
+@media (max-width: 480px) {
+    .banner h1 {
+        font-size: 28px;
+    }
+    .btn {
+        padding: 12px 28px;
+        font-size: 14px;
+    }
+    .titulo h2 {
+        font-size: 26px;
+    }
+}
 </style>
 </head>
 <body>
 
 <header>
-
-<nav>
-
-<div class="logo">CRESCER</div>
-
-<ul>
-<li><a href="#inicio">Início</a></li>
-<li><a href="#sobre">Sobre</a></li>
-<li><a href="#cursos">Cursos</a></li>
-<li><a href="#espacos">Espaços</a></li>
-<li><a href="#galeria">Galeria</a></li>
-<li><a href="#contato">Contato</a></li>
-</ul>
-
-</nav>
-
+    <nav>
+        <div class="logo">
+            <img src="img/LOGO CRESCER.png" alt="Logo CRESCER">
+        </div>
+        <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#cursos">Cursos</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <li><a href="glossario.html">Glossário</a></li>
+            <li><a href="materiais.html">Materiais</a></li>
+            <li><a href="ods8.html">ODS 8</a></li>
+        </ul>
+    </nav>
 </header>
 
-<!-- BANNER -->
-
+<!-- BANNER HERO - SEM LUZ BRANCA -->
 <section class="banner" id="inicio">
-
-<div class="banner-content">
-
-<h1>Trabalho Decente e Crescimento Econômico</h1>
-
-<p>
-O CRESCER oferece apoio profissional,
-capacitação gratuita e incentivo ao crescimento
-de moradores do Jardim São Luís através
-de cursos, orientação e inclusão social.
-</p>
-
-<a href="#cursos" class="btn">
-Conhecer o Projeto
-</a>
-
-</div>
-
+    <div class="banner-content">
+        <h1>Trabalho Decente<br>e Crescimento Econômico</h1>
+        <p>O CRESCER oferece apoio profissional, capacitação gratuita e incentivo ao crescimento de moradores do Jardim São Luís através de cursos, orientação e inclusão social.</p>
+        <a href="#cursos" class="btn"><i class="fas fa-arrow-right"></i> Conhecer o Projeto</a>
+    </div>
 </section>
 
-<!-- SOBRE -->
-
+<!-- SOBRE - TRAJETÓRIA NO ITINERÁRIO -->
 <section class="sobre" id="sobre">
-
-<div class="titulo">
-
-<h2>Sobre o Projeto</h2>
-
-<p>Inclusão social através da educação e capacitação</p>
-
-</div>
-
-<div class="sobre-container">
-
-<div class="sobre-texto">
-
-<p>
-O projeto foi criado para ajudar jovens,
-profissionais estagnados e trabalhadores
-sobrecarregados que enfrentam dificuldades
-para conseguir oportunidades melhores.
-</p>
-
-<p>
-O CRESCER promove cursos gratuitos,
-orientação profissional e desenvolvimento
-humano, criando oportunidades reais
-para a comunidade.
-</p>
-
-<p>
-Além da capacitação, o ambiente do CRESCER
-é acolhedor, organizado e preparado
-para incentivar o crescimento pessoal
-e profissional dos participantes.
-</p>
-
-</div>
-
-<div class="sobre-img">
-
-<img src="img/exterior.jpeg" alt="Área externa">
-
-</div>
-
-</div>
-
+    <div class="titulo">
+        <h2>Sobre o Projeto</h2>
+        <p>Minha trajetória no Itinerário Extensionista 1 - IE_ADS_2_SA_5.1800</p>
+    </div>
+    <div class="sobre-container">
+        <div class="sobre-texto">
+            <p><i class="fas fa-graduation-cap" style="color:#dc3545;"></i> <strong>Itinerário Extensionista 1 - IE_ADS_2_SA_5.1800</strong> Desenvolvido no meu curso de Análise e Desenvolvimento de Sistemas, unindo teoria e prática para resolver um problema real.</p>
+            <p><i class="fas fa-search" style="color:#dc3545;"></i> <strong>Diagnóstico:</strong> Identificamos a dificuldade de entrar e crescer no mercado de trabalho no Jardim São Luis.</p>
+            <p><i class="fas fa-building" style="color:#dc3545;"></i> <strong>Pesquisa de campo:</strong> Visitamos o CRESCER, entrevistamos a comunidade, coletamos fotos e depoimentos.</p>
+            <p><i class="fas fa-chart-line" style="color:#dc3545;"></i> <strong>Perfis identificados:</strong> Jovens (14-24 anos), profissionais estagnados e trabalhadores sobrecarregados.</p>
+            <p><i class="fas fa-globe" style="color:#dc3545;"></i> <strong>ODS 8:</strong> Todo o projeto está alinhado ao Trabalho Decente e Crescimento Econômico da ONU.</p>
+            <p><i class="fas fa-laptop-code" style="color:#dc3545;"></i> <strong>Resultado:</strong> Este site com materiais gratuitos, glossário e informações para apoiar a comunidade.</p>
+            <p><i class="fas fa-heart" style="color:#dc3545;"></i> <strong>Conclusão:</strong> Extensão é a ponte entre a escola e a transformação social.</p>
+        </div>
+    </div>
 </section>
 
 <!-- CURSOS -->
-
 <section id="cursos">
-
-<div class="titulo">
-
-<h2>Cursos Gratuitos</h2>
-
-<p>Capacitação profissional gratuita para a comunidade</p>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-
-<img src="img/saladeaula.jpeg" alt="Sala de aula">
-
-<div class="card-content">
-
-<h3>Informática Básica</h3>
-
-<p>
-Aprenda ferramentas importantes para o mercado
-de trabalho como pacote Office,
-internet e digitação.
-</p>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<img src="img/saladeaula2.jpeg" alt="Curso profissional">
-
-<div class="card-content">
-
-<h3>Comunicação Profissional</h3>
-
-<p>
-Desenvolvimento de comunicação,
-postura profissional e trabalho em equipe.
-</p>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<img src="img/alunos.jpeg" alt="Alunos do projeto">
-
-<div class="card-content">
-
-<h3>Preparação para Entrevistas</h3>
-
-<p>
-Treinamentos e orientações para entrevistas,
-currículos e primeiro emprego.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- ESPAÇOS -->
-
-<section class="galeria" id="espacos">
-
-<div class="titulo">
-
-<h2>Espaços do CRESCER</h2>
-
-<p>Conheça os ambientes da instituição</p>
-
-</div>
-
-<div class="galeria-grid">
-
-<img src="img/fachada.jpeg" alt="Fachada">
-<img src="img/exterior.jpeg" alt="Área externa">
-<img src="img/exterior2.jpeg" alt="Área externa">
-<img src="img/cantina.jpeg" alt="Cantina">
-<img src="img/sala.jpeg" alt="Sala">
-<img src="img/sala1.jpeg" alt="Sala">
-<img src="img/sala2.jpeg" alt="Sala">
-<img src="img/sala3.jpeg" alt="Sala">
-<img src="img/horta.jpeg" alt="Horta">
-<img src="img/horta2.jpeg" alt="Horta">
-
-</div>
-
-</section>
-
-<!-- GALERIA -->
-
-<section id="galeria">
-
-<div class="titulo">
-
-<h2>Ambiente Acolhedor</h2>
-
-<p>O CRESCER promove inclusão, aprendizado e desenvolvimento</p>
-
-</div>
-
-<div class="cards">
-
-<div class="card">
-
-<img src="img/alunos.jpeg" alt="Alunos">
-
-<div class="card-content">
-
-<h3>Inclusão Social</h3>
-
-<p>
-O projeto busca criar oportunidades reais
-para pessoas em situação de vulnerabilidade social.
-</p>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<img src="img/horta.jpeg" alt="Horta comunitária">
-
-<div class="card-content">
-
-<h3>Horta Comunitária</h3>
-
-<p>
-A horta representa cooperação,
-trabalho em equipe e participação coletiva.
-</p>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<img src="img/cantina.jpeg" alt="Cantina">
-
-<div class="card-content">
-
-<h3>Espaços Organizados</h3>
-
-<p>
-O ambiente foi pensado para oferecer
-acolhimento, conforto e aprendizado.
-</p>
-
-</div>
-
-</div>
-
-</div>
-
+    <div class="titulo">
+        <h2>Cursos Gratuitos</h2>
+        <p>Capacitação profissional gratuita para a comunidade</p>
+    </div>
+    <div class="cards">
+        <div class="card">
+            <img src="img/informática básica.png" alt="Informática Básica">
+            <div class="card-content">
+                <h3><i class="fas fa-laptop-code"></i> Informática Básica</h3>
+                <p>Aprenda ferramentas importantes para o mercado de trabalho como pacote Office, internet e digitação.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="img/comunicação profissional.jpeg" alt="Comunicação Profissional">
+            <div class="card-content">
+                <h3><i class="fas fa-chalkboard-user"></i> Comunicação Profissional</h3>
+                <p>Desenvolvimento de comunicação, postura profissional e trabalho em equipe.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="img/preparação entrevista.jpg" alt="Preparação para Entrevistas">
+            <div class="card-content">
+                <h3><i class="fas fa-handshake"></i> Preparação para Entrevistas</h3>
+                <p>Treinamentos e orientações para entrevistas, currículos e primeiro emprego.</p>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- CONTATO -->
-
 <section class="contato" id="contato">
-
-<div class="titulo">
-
-<h2>Contato</h2>
-
-<p>Participe do projeto e dos cursos gratuitos</p>
-
-</div>
-
-<p>
-Entre em contato pelo WhatsApp
-para obter mais informações.
-</p>
-
-<a href="https://wa.me/5511946155313" class="btn">
-Entrar em Contato
-</a>
-
+    <div class="titulo">
+        <h2>Contato</h2>
+        <p>Participe do projeto e dos cursos gratuitos</p>
+    </div>
+    
+    <div class="contato-endereco">
+        <p><i class="fas fa-map-marker-alt"></i> <strong>Endereço:</strong> R. Aribugu, 311 - Jardim São Luís, São Paulo - SP, 05844-020</p>
+        <p><i class="fas fa-phone-alt"></i> <strong>Telefone para contato:</strong> (11) 3900-6700</p>
+    </div>
+    
+    <div class="contato-botoes">
+        <a href="https://wa.me/5511946155313" class="btn">
+            <i class="fab fa-whatsapp"></i> Falar no WhatsApp
+        </a>
+        <a href="https://maps.app.goo.gl/YUFBD5hvu7VKksAr7" target="_blank" class="btn btn-maps">
+            <i class="fab fa-google"></i> Ver no Google Maps
+        </a>
+    </div>
 </section>
 
+<!-- RODAPÉ -->
 <footer>
-
-<p>
-Projeto inspirado no ODS 8 —
-Trabalho Decente e Crescimento Econômico.
-</p>
-
+    <p><i class="fas fa-hand-holding-heart"></i> Projeto inspirado no ODS 8 — Trabalho Decente e Crescimento Econômico</p>
+    <p>📌 CRESCER - Centro Rotário Educacional, Social, Cultural e Recreativo | Jardim São Luis</p>
+    <p>
+        <a href="https://wa.me/5511946155313" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a> 
+    </p>
 </footer>
 
 <script>
-
-/* MENU DINÂMICO */
-
-window.addEventListener("scroll", () => {
-
-    const header = document.querySelector("header");
-
-    if(window.scrollY > 50){
-
-        header.style.background = "#084298";
-
-    }else{
-
-        header.style.background = "#0d6efd";
-
-    }
-
-});
-
-/* ANIMAÇÃO DOS CARDS */
-
-const cards = document.querySelectorAll(".card");
-
-cards.forEach(card => {
-
-    card.addEventListener("mouseenter", () => {
-
-        card.style.boxShadow =
-        "0 10px 30px rgba(13,110,253,0.3)";
-
+    window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
     });
 
-    card.addEventListener("mouseleave", () => {
-
-        card.style.boxShadow =
-        "0 5px 20px rgba(0,0,0,0.1)";
-
+    const cards = document.querySelectorAll(".card");
+    cards.forEach(card => {
+        card.addEventListener("mouseenter", () => {
+            card.style.boxShadow = "0 35px 50px -20px rgba(220, 53, 69, 0.35)";
+        });
+        card.addEventListener("mouseleave", () => {
+            card.style.boxShadow = "0 15px 35px -12px rgba(0,0,0,0.1)";
+        });
     });
 
-});
-
+    document.addEventListener("DOMContentLoaded", () => {
+        const elements = document.querySelectorAll(".card, .sobre-container");
+        elements.forEach((el, i) => {
+            el.style.opacity = "0";
+            el.style.transform = "translateY(20px)";
+            el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+            setTimeout(() => {
+                el.style.opacity = "1";
+                el.style.transform = "translateY(0)";
+            }, i * 50);
+        });
+    });
 </script>
 
 </body>

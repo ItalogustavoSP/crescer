@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glossário - CRESCER</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, 'Roboto', sans-serif;
+}
+
+body {
+    background: linear-gradient(145deg, #f8f9fa 0%, #ffffff 100%);
+    min-height: 100vh;
+}
+
+.hero {
+    background: linear-gradient(135deg, #dc3545 0%, #a71d2a 100%);
+    padding: 40px 8% 50px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "📖🔤📚";
+    position: absolute;
+    font-size: 180px;
+    opacity: 0.05;
+    bottom: -40px;
+    right: -20px;
+    pointer-events: none;
+    animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+.hero h1 {
+    font-size: 42px;
+    color: white;
+    margin-bottom: 12px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.hero h1 i {
+    margin-right: 12px;
+    font-size: 40px;
+    background: rgba(255,255,255,0.12);
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.hero p {
+    font-size: 17px;
+    color: rgba(255,255,255,0.92);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.ods-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    padding: 8px 24px;
+    border-radius: 60px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 20px;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+.container {
+    max-width: 1300px;
+    margin: -25px auto 0;
+    padding: 0 6% 50px;
+}
+
+.search-wrapper {
+    background: white;
+    border-radius: 60px;
+    padding: 6px 6px 6px 28px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 550px;
+    margin: 0 auto 35px;
+    box-shadow: 0 8px 20px -6px rgba(0,0,0,0.08);
+    border: 1px solid #e9ecef;
+}
+
+.search-wrapper:focus-within {
+    box-shadow: 0 12px 28px -10px rgba(220,53,69,0.25);
+    border-color: #dc3545;
+}
+
+.search-wrapper i {
+    color: #dc3545;
+    font-size: 18px;
+}
+
+.search-wrapper input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding: 14px 0;
+    background: transparent;
+}
+
+.search-wrapper button {
+    background: linear-gradient(135deg, #0a1a2a, #062c5e);
+    border: none;
+    color: white;
+    padding: 10px 28px;
+    border-radius: 60px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.search-wrapper button:hover {
+    background: linear-gradient(135deg, #1a3a5c, #084298);
+}
+
+.stats-glossario {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.stat-mini {
+    background: white;
+    border-radius: 60px;
+    padding: 10px 28px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.stat-mini:hover {
+    transform: translateY(-3px);
+    border-color: #dc3545;
+}
+
+.stat-mini i {
+    font-size: 22px;
+    color: #0a1a2a;
+}
+
+.stat-mini span {
+    font-weight: 700;
+    color: #1a2a3a;
+}
+
+.stat-mini small {
+    color: #6c757d;
+}
+
+.result-count {
+    text-align: center;
+    margin: 20px 0 30px;
+    font-size: 14px;
+    color: #6c757d;
+}
+
+.result-count span {
+    font-weight: 700;
+    color: #0a1a2a;
+    font-size: 18px;
+}
+
+.glossario-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 28px;
+    margin-bottom: 50px;
+}
+
+.termo-card {
+    background: white;
+    border-radius: 28px;
+    overflow: hidden;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 20px -6px rgba(0,0,0,0.06);
+    border: 1px solid #eef3fc;
+    position: relative;
+}
+
+.termo-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #dc3545, #0a1a2a);
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.termo-card:hover::before {
+    transform: scaleX(1);
+}
+
+.termo-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 40px -16px rgba(220,53,69,0.25);
+}
+
+.termo-header {
+    background: linear-gradient(135deg, #fafdff, #ffffff);
+    padding: 22px 25px 14px;
+    border-bottom: 1px solid #f0f2f5;
+}
+
+.termo-header h3 {
+    font-size: 21px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #dc3545;
+}
+
+.termo-header h3 i {
+    font-size: 28px;
+}
+
+.termo-body {
+    padding: 20px 25px;
+}
+
+.termo-body p {
+    font-size: 15px;
+    line-height: 1.65;
+    color: #6c757d;
+}
+
+.termo-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #f8f9fa, #f1f3f5);
+    padding: 5px 14px;
+    border-radius: 40px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #0a1a2a;
+    margin-top: 14px;
+}
+
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #0a1a2a;
+    color: white;
+    text-decoration: none;
+    padding: 14px 36px;
+    border-radius: 60px;
+    font-weight: 600;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.btn-voltar:hover {
+    background: #dc3545;
+    gap: 16px;
+}
+
+footer {
+    background: linear-gradient(135deg, #0a1a2a, #061220);
+    color: #c8e6d9;
+    text-align: center;
+    padding: 40px 8% 35px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin-bottom: 14px;
+    font-size: 13px;
+}
+
+footer a {
+    color: #dc3545;
+    text-decoration: none;
+}
+
+.hidden-term {
+    display: none;
+}
+
+@media (max-width: 750px) {
+    .hero h1 { font-size: 32px; }
+    .glossario-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+    <h1><i class="fas fa-book-open"></i> Glossário</h1>
+    <p>Termos simples para entender melhor o mundo do trabalho e o ODS 8</p>
+    <div class="ods-tag"><i class="fas fa-globe-americas"></i> ODS 8 – Trabalho Decente e Crescimento Econômico</div>
+</div>
+
+
+    <div class="stats-glossario">
+        <div class="stat-mini"><i class="fas fa-list"></i> <span>11 termos</span> <small>• disponíveis</small></div>
+        <div class="stat-mini"><i class="fas fa-graduation-cap"></i> <span>Linguagem simples</span> <small>• para todos</small></div>
+        <div class="stat-mini"><i class="fas fa-chart-line"></i> <span>ODS 8</span> <small>• trabalho decente</small></div>
+    </div>
+
+    <div id="resultCount" class="result-count">
+        Mostrando <span id="visibleCount">11</span> de <span id="totalCount">11</span> termos
+    </div>
+
+    <div class="glossario-grid" id="glossarioGrid">
+        <div class="termo-card" data-search="trabalho decente digno direitos"><div class="termo-header"><h3><i class="fas fa-briefcase"></i> Trabalho Decente</h3></div><div class="termo-body"><p>Trabalho com carteira assinada, salário justo, direitos trabalhistas (férias, 13º, FGTS), ambiente seguro e respeito ao trabalhador. É o objetivo do ODS 8.</p><div class="termo-tag"><i class="fas fa-star"></i> Fundamental</div></div></div>
+        <div class="termo-card" data-search="ods 8 objetivo desenvolvimento sustentável onu"><div class="termo-header"><h3><i class="fas fa-globe-americas"></i> ODS 8</h3></div><div class="termo-body"><p>Objetivo de Desenvolvimento Sustentável número 8 da ONU. Ele quer garantir trabalho decente e crescimento econômico para todas as pessoas, sem exploração.</p><div class="termo-tag"><i class="fas fa-un"></i> ONU</div></div></div>
+        <div class="termo-card" data-search="feedback retorno críticas melhorar"><div class="termo-header"><h3><i class="fas fa-comment-dots"></i> Feedback</h3></div><div class="termo-body"><p>Quando alguém te diz o que você está fazendo certo e o que pode melhorar no trabalho. É essencial para crescer na carreira.</p><div class="termo-tag"><i class="fas fa-chart-line"></i> Carreira</div></div></div>
+        <div class="termo-card" data-search="plano carreira metas promoção crescer"><div class="termo-header"><h3><i class="fas fa-road"></i> Plano de Carreira</h3></div><div class="termo-body"><p>Um caminho com metas claras para você subir de cargo, ganhar mais e se desenvolver profissionalmente ao longo do tempo.</p><div class="termo-tag"><i class="fas fa-arrow-up"></i> Crescimento</div></div></div>
+        <div class="termo-card" data-search="pdi plano desenvolvimento individual metas"><div class="termo-header"><h3><i class="fas fa-clipboard-list"></i> PDI (Plano de Desenvolvimento Individual)</h3></div><div class="termo-body"><p>Um documento pessoal onde você escreve seus objetivos profissionais e as ações que vai fazer para alcançá-los.</p><div class="termo-tag"><i class="fas fa-file-alt"></i> Ferramenta</div></div></div>
+        <div class="termo-card" data-search="estagnação parado promoção crescer"><div class="termo-header"><h3><i class="fas fa-pause-circle"></i> Estagnação Profissional</h3></div><div class="termo-body"><p>Ficar muitos anos no mesmo cargo, sem promoção, sem aumento e sem aprender coisas novas. É frustrante, mas tem solução.</p><div class="termo-tag"><i class="fas fa-exclamation-triangle"></i> Atenção</div></div></div>
+        <div class="termo-card" data-search="subemprego trabalho informal baixo salário"><div class="termo-header"><h3><i class="fas fa-hand-holding-usd"></i> Subemprego</h3></div><div class="termo-body"><p>Trabalho pesado, mal pago, sem direitos e sem perspectiva de melhora. Exemplos: trabalho informal, diarista sem carteira, etc.</p><div class="termo-tag"><i class="fas fa-shield-alt"></i> Direitos</div></div></div>
+        <div class="termo-card" data-search="capacitação curso treinamento aprender"><div class="termo-header"><h3><i class="fas fa-graduation-cap"></i> Capacitação</h3></div><div class="termo-body"><p>Fazer cursos e treinamentos para aprender habilidades novas e melhorar seu desempenho no trabalho.</p><div class="termo-tag"><i class="fas fa-book"></i> Educação</div></div></div>
+        <div class="termo-card" data-search="inclusão produtiva oportunidades excluídos"><div class="termo-header"><h3><i class="fas fa-hand-holding-heart"></i> Inclusão Produtiva</h3></div><div class="termo-body"><p>Dar oportunidades de trabalho digno para pessoas que sempre foram excluídas do mercado: jovens sem experiência, PCDs, pessoas de baixa renda, etc.</p><div class="termo-tag"><i class="fas fa-users"></i> Social</div></div></div>
+        <div class="termo-card" data-search="mentoria mentor orientação experiência"><div class="termo-header"><h3><i class="fas fa-chalkboard-user"></i> Mentoria</h3></div><div class="termo-body"><p>Uma pessoa mais experiente te ajuda a tomar decisões na carreira, te orienta e te aconselha.</p><div class="termo-tag"><i class="fas fa-star"></i> Apoio</div></div></div>
+        <div class="termo-card" data-search="reunião 1-1 individual gestor feedback"><div class="termo-header"><h3><i class="fas fa-calendar-alt"></i> Reunião 1-1</h3></div><div class="termo-body"><p>Encontro individual entre você e seu gestor para conversar sobre seu desempenho, receber feedback e alinhar expectativas.</p><div class="termo-tag"><i class="fas fa-users"></i> Gestão</div></div></div>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="index.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar para o site</a>
+    </div>
+</div>
+
+<footer>
+    <p><i class="fas fa-hand-holding-heart"></i> Glossário criado para a comunidade do Jardim São Luis</p>
+    <p>📌 Projeto alinhado ao <strong>ODS 8 (Trabalho Decente e Crescimento Econômico)</strong> | CRESCER</p>
+    <p><a href="https://wa.me/5511946155313" target="_blank"><i class="fab fa-whatsapp"></i> Dúvidas? Fale conosco</a></p>
+</footer>
+
+<script>
+    function filtrarTermos() {
+        const termo = document.getElementById('searchInput').value.toLowerCase();
+        const cards = document.querySelectorAll('.termo-card');
+        let visiveis = 0;
+        cards.forEach(card => {
+            const textoBusca = card.getAttribute('data-search') || '';
+            if (textoBusca.includes(termo) || termo === '') {
+                card.classList.remove('hidden-term');
+                visiveis++;
+            } else {
+                card.classList.add('hidden-term');
+            }
+        });
+        document.getElementById('visibleCount').innerText = visiveis;
+    }
+    document.getElementById('searchInput').addEventListener('keyup', filtrarTermos);
+</script>
+</body>
+</html>

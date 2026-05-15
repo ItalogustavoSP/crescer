@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ODS 8 - Trabalho Decente - CRESCER</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, 'Roboto', sans-serif;
+}
+
+body {
+    background: linear-gradient(145deg, #f8f9fa 0%, #ffffff 100%);
+    min-height: 100vh;
+}
+
+.hero {
+    background: linear-gradient(135deg, #dc3545 0%, #a71d2a 100%);
+    padding: 50px 8% 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "🎯🏆💼";
+    position: absolute;
+    font-size: 200px;
+    opacity: 0.05;
+    bottom: -40px;
+    right: -20px;
+    pointer-events: none;
+    animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+.hero h1 {
+    font-size: 48px;
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.hero h1 i {
+    margin-right: 12px;
+    font-size: 44px;
+    background: rgba(255,255,255,0.12);
+    padding: 10px;
+    border-radius: 50px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.92);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+.ods-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(8px);
+    padding: 8px 28px;
+    border-radius: 60px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 25px;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+.container {
+    max-width: 1300px;
+    margin: -30px auto 0;
+    padding: 0 6% 50px;
+}
+
+.stats-ods {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+}
+
+.stat-card {
+    background: white;
+    border-radius: 28px;
+    padding: 25px 35px;
+    text-align: center;
+    box-shadow: 0 10px 25px -8px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(220,53,69,0.1);
+}
+
+.stat-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 35px -12px rgba(220,53,69,0.25);
+    border-color: rgba(220,53,69,0.3);
+}
+
+.stat-number {
+    font-size: 42px;
+    font-weight: 800;
+    color: #0a1a2a;
+    letter-spacing: -1px;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #6c757d;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.destaque {
+    background: linear-gradient(135deg, #dc3545 0%, #a71d2a 100%);
+    color: white;
+    padding: 45px 50px;
+    border-radius: 32px;
+    text-align: center;
+    margin-bottom: 50px;
+    box-shadow: 0 15px 30px -10px rgba(220,53,69,0.3);
+    transition: 0.3s;
+}
+
+.destaque:hover {
+    transform: translateY(-3px);
+}
+
+.destaque h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.destaque p {
+    font-size: 18px;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.metas {
+    background: white;
+    border-radius: 32px;
+    padding: 45px;
+    margin-bottom: 45px;
+    box-shadow: 0 8px 20px -6px rgba(0,0,0,0.05);
+    border: 1px solid #eef3fc;
+}
+
+.metas h3 {
+    color: #dc3545;
+    font-size: 28px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.metas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.meta-item {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 20px;
+    transition: 0.3s;
+    border-left: 4px solid #0a1a2a;
+}
+
+.meta-item:hover {
+    transform: translateX(5px);
+    background: #f1f3f5;
+}
+
+.meta-code {
+    font-size: 14px;
+    font-weight: 700;
+    color: #0a1a2a;
+    margin-bottom: 8px;
+}
+
+.meta-desc {
+    font-size: 15px;
+    color: #2c3e50;
+    line-height: 1.5;
+}
+
+.crescer {
+    background: linear-gradient(135deg, #f8f9fa, #f1f3f5);
+    border-radius: 32px;
+    padding: 45px;
+    margin-bottom: 45px;
+}
+
+.crescer h3 {
+    color: #dc3545;
+    font-size: 28px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.crescer p {
+    font-size: 17px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+    color: #2c3e50;
+}
+
+.contribuicoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.contrib-item {
+    background: white;
+    padding: 22px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.contrib-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px -10px rgba(220,53,69,0.15);
+}
+
+.contrib-icon {
+    font-size: 32px;
+}
+
+.contrib-text {
+    font-size: 15px;
+    font-weight: 600;
+    color: #1a2a3a;
+}
+
+.resultado-box {
+    background: linear-gradient(135deg, #0a1a2a, #062c5e);
+    color: white;
+    padding: 25px 30px;
+    border-radius: 24px;
+    text-align: center;
+}
+
+.resultado-box p {
+    margin: 0;
+    font-size: 16px;
+    color: white;
+}
+
+.btn-voltar {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: #0a1a2a;
+    color: white;
+    text-decoration: none;
+    padding: 14px 36px;
+    border-radius: 60px;
+    font-weight: 600;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.btn-voltar:hover {
+    background: #dc3545;
+    gap: 16px;
+}
+
+footer {
+    background: linear-gradient(135deg, #0a1a2a, #061220);
+    color: #c8e6d9;
+    text-align: center;
+    padding: 40px 8% 35px;
+    margin-top: 30px;
+}
+
+footer p {
+    margin-bottom: 14px;
+    font-size: 13px;
+}
+
+footer a {
+    color: #dc3545;
+    text-decoration: none;
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 32px; }
+    .destaque h2 { font-size: 24px; }
+    .destaque { padding: 30px 25px; }
+    .metas { padding: 30px 25px; }
+    .crescer { padding: 30px 25px; }
+}
+</style>
+</head>
+<body>
+
+<div class="hero">
+    <h1><i class="fas fa-bullseye"></i> ODS 8 – Trabalho Decente</h1>
+    <p>Crescimento econômico sustentado, inclusivo e sustentável,<br>emprego pleno e produtivo para todos</p>
+    <div class="ods-badge"><i class="fas fa-globe-americas"></i> Objetivo de Desenvolvimento Sustentável 8</div>
+</div>
+
+<div class="container">
+    <div class="stats-ods">
+        <div class="stat-card"><div class="stat-number">8.5</div><div class="stat-label">Emprego pleno e produtivo</div></div>
+        <div class="stat-card"><div class="stat-number">8.6</div><div class="stat-label">Redução do desemprego jovem</div></div>
+        <div class="stat-card"><div class="stat-number">8.8</div><div class="stat-label">Proteção dos direitos</div></div>
+        <div class="stat-card"><div class="stat-number">8.b</div><div class="stat-label">Estratégias para emprego</div></div>
+    </div>
+
+    <div class="destaque">
+        <h2><i class="fas fa-question-circle"></i> O que é o ODS 8?</h2>
+        <p>O ODS 8 é um dos 17 Objetivos de Desenvolvimento Sustentável da ONU. Ele busca promover o crescimento econômico sustentado, inclusivo e sustentável, emprego pleno e produtivo, e trabalho decente para todas as mulheres e homens, até 2030.</p>
+    </div>
+
+    <div class="metas">
+        <h3><i class="fas fa-list-check"></i> Metas do ODS 8</h3>
+        <div class="metas-grid">
+            <div class="meta-item"><div class="meta-code">📌 Meta 8.5</div><div class="meta-desc">Emprego pleno e produtivo para todos, com salário justo e igualdade de oportunidades.</div></div>
+            <div class="meta-item"><div class="meta-code">📌 Meta 8.6</div><div class="meta-desc">Reduzir a proporção de jovens sem emprego, educação ou treinamento.</div></div>
+            <div class="meta-item"><div class="meta-code">📌 Meta 8.8</div><div class="meta-desc">Proteger os direitos trabalhistas e promover ambientes de trabalho seguros.</div></div>
+            <div class="meta-item"><div class="meta-code">📌 Meta 8.b</div><div class="meta-desc">Desenvolver estratégias globais para o emprego decente e juventude.</div></div>
+        </div>
+    </div>
+
+    <div class="crescer">
+        <h3><i class="fas fa-hand-holding-heart"></i> Como o CRESCER contribui para o ODS 8</h3>
+        <p>O CRESCER atua diretamente na comunidade do Jardim São Luis com ações que promovem trabalho decente e crescimento econômico:</p>
+        <div class="contribuicoes">
+            <div class="contrib-item"><div class="contrib-icon">🎓</div><div class="contrib-text">Cursos gratuitos de capacitação profissional (informática, comunicação, preparação para entrevistas)</div></div>
+            <div class="contrib-item"><div class="contrib-icon">⚖️</div><div class="contrib-text">Orientação sobre direitos trabalhistas e carteira assinada</div></div>
+            <div class="contrib-item"><div class="contrib-icon">📈</div><div class="contrib-text">Acompanhamento para profissionais estagnados (plano de carreira e feedback)</div></div>
+            <div class="contrib-item"><div class="contrib-icon">🏠</div><div class="contrib-text">Ambiente acolhedor e acessível (rampa em obras para cadeirantes)</div></div>
+            <div class="contrib-item"><div class="contrib-icon">🤝</div><div class="contrib-text">Parcerias com empresas para encaminhamento ao mercado de trabalho</div></div>
+        </div>
+        <div class="resultado-box"><p><strong>🏆 Resultado:</strong> Pessoas que antes estavam desempregadas, estagnadas ou em subempregos ganham chance de ter um trabalho digno, com respeito e possibilidade de crescer.</p></div>
+    </div>
+
+    <div style="text-align: center;">
+        <a href="index.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar para o site</a>
+    </div>
+</div>
+
+<footer>
+    <p><i class="fas fa-globe-americas"></i> ODS 8 - Trabalho Decente e Crescimento Econômico</p>
+    <p>📌 Projeto CRESCER - Comunidade do Jardim São Luis</p>
+    <p><a href="https://wa.me/5511946155313" target="_blank"><i class="fab fa-whatsapp"></i> Dúvidas? Fale conosco</a></p>
+</footer>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const elements = document.querySelectorAll('.destaque, .metas, .crescer, .stat-card');
+        elements.forEach((el, index) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            setTimeout(() => {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, index * 100);
+        });
+    });
+</script>
+</body>
+</html>
