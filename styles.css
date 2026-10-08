@@ -231,3 +231,193 @@ footer a:hover{text-decoration:underline}
   *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   [data-reveal]{opacity:1;transform:none}
 }
+
+
+/* Central de materiais — outubro de 2026 */
+.materiais-page{
+  width:min(1180px,92%);
+  margin:-28px auto 0;
+  padding:0 0 70px;
+  position:relative;
+  z-index:2;
+}
+.materials-intro{
+  width:min(760px,100%);
+  margin:0 auto 30px;
+  padding:8px 12px 0;
+  text-align:center;
+}
+.materials-kicker{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(220,53,69,.08);
+  color:var(--red);
+  font-size:.78rem;
+  font-weight:850;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+.materials-intro h2{
+  margin:15px 0 8px;
+  color:var(--navy);
+  font-size:clamp(1.8rem,4vw,2.7rem);
+  line-height:1.08;
+  letter-spacing:-.045em;
+}
+.materials-intro p{
+  margin:0 auto;
+  max-width:650px;
+  color:var(--muted);
+}
+.materials-search{
+  margin:0 auto 14px;
+}
+.materials-search button{
+  transition:.25s var(--ease);
+}
+.materials-search button:hover{
+  background:var(--red);
+  transform:translateY(-1px);
+}
+.materials-search input::placeholder{color:#98a2b3}
+.materiais-page .result-count{
+  margin:14px 0 30px;
+  font-size:.92rem;
+}
+.materiais-grid{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:24px;
+  align-items:stretch;
+}
+.material-card{
+  min-height:100%;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+  position:relative;
+  background:rgba(255,255,255,.96);
+  border:1px solid var(--line);
+  border-radius:28px;
+  box-shadow:var(--shadow-soft);
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),border-color .35s var(--ease);
+}
+.material-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto;
+  height:4px;
+  background:linear-gradient(90deg,var(--red),var(--navy));
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform .35s var(--ease);
+}
+.material-card:hover{
+  transform:translateY(-7px);
+  box-shadow:var(--shadow);
+  border-color:rgba(220,53,69,.16);
+}
+.material-card:hover::before{transform:scaleX(1)}
+.material-card .card-header{
+  min-height:92px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  padding:22px 24px 10px;
+}
+.material-card .card-icon{
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  flex:0 0 58px;
+  border-radius:18px;
+  background:linear-gradient(145deg,rgba(220,53,69,.10),rgba(8,24,39,.07));
+  font-size:1.65rem;
+  box-shadow:inset 0 0 0 1px rgba(8,24,39,.05);
+}
+.badge-popular{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:7px 11px;
+  border-radius:999px;
+  background:#fff4f5;
+  color:var(--red-dark);
+  border:1px solid rgba(220,53,69,.12);
+  font-size:.72rem;
+  font-weight:850;
+  white-space:nowrap;
+}
+.material-card .card-content{
+  flex:1;
+  padding:8px 24px 20px;
+}
+.material-card .card-content h3{
+  margin:0 0 9px;
+  color:var(--navy);
+  font-size:1.24rem;
+  line-height:1.25;
+}
+.material-card .card-content p{
+  min-height:52px;
+  margin:0 0 20px;
+  color:var(--muted);
+  font-size:.95rem;
+}
+.material-card .meta-info{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.material-card .meta-info span{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:7px 10px;
+  border-radius:10px;
+  background:#f6f8fb;
+  color:#667085;
+  font-size:.73rem;
+  font-weight:700;
+}
+.material-card .meta-info i{color:var(--red)}
+.material-card .btn-download{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  margin:0 24px 24px;
+  min-height:50px;
+  border-radius:15px;
+  background:var(--navy);
+  color:#fff;
+  text-decoration:none;
+  font-weight:800;
+  transition:.25s var(--ease);
+}
+.material-card .btn-download:hover{
+  background:linear-gradient(135deg,var(--red),var(--red-dark));
+  transform:translateY(-2px);
+  box-shadow:0 12px 25px rgba(220,53,69,.2);
+}
+.materials-back{
+  display:flex;
+  justify-content:center;
+  padding:8px 0 8px;
+}
+@media(max-width:700px){
+  .materiais-page{width:92%;margin:-18px auto 0}
+  .materiais-grid{grid-template-columns:1fr;gap:18px}
+  .materials-intro{padding:0}
+  .materials-intro h2{font-size:1.9rem}
+  .material-card .card-content p{min-height:0}
+  .material-card .card-header{padding:20px 20px 8px}
+  .material-card .card-content{padding:8px 20px 18px}
+  .material-card .btn-download{margin:0 20px 20px}
+}
