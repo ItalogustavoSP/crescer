@@ -27,11 +27,13 @@
     </div>
 </div>
 
-    <div class="search-wrapper">
+    <main class="materiais-page"><div class="search-wrapper materials-search">
         <i class="fas fa-search"></i>
         <input type="text" id="searchInput" placeholder="Buscar material... (currículo, feedback, direitos)">
-        <button onclick="filtrarMateriais()"><i class="fas fa-filter"></i> Filtrar</button>
+        <button type="button"><i class="fas fa-filter"></i> Filtrar</button>
     </div>
+
+    <div class="materials-intro"><span class="materials-kicker"><i class="fas fa-folder-open"></i> Biblioteca CRESCER</span><h2>Materiais para sua jornada profissional</h2><p>Escolha um material, baixe gratuitamente e use quando precisar. Tudo organizado em um só lugar.</p></div>
 
     <div id="resultCount" class="result-count">
         Mostrando <span id="visibleCount">5</span> de <span id="totalCount">5</span> materiais
@@ -69,10 +71,10 @@
         </div>
     </div>
 
-    <div style="text-align: center;">
+    <div class="materials-back">
         <a href="index.html" class="btn-voltar"><i class="fas fa-arrow-left"></i> Voltar para o site</a>
     </div>
-</div>
+</main>
 
 <footer>
 <!-- Se alguém mexer aqui depois, o ano abaixo se atualiza sozinho. -->
