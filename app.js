@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", syncHeader, { passive: true });
 
   // Pequeno detalhe que faz diferença: elementos entram na tela sem parecer uma apresentação engessada.
-  const revealItems = document.querySelectorAll(".card, .sobre-container, .destaque, .metas, .crescer, .stat-card, .stat-mini, .termo-card");
+  const revealItems = document.querySelectorAll(".card, .material-card, .sobre-container, .destaque, .metas, .crescer, .stat-card, .stat-mini, .termo-card");
   revealItems.forEach((item) => item.setAttribute("data-reveal", ""));
 
   if ("IntersectionObserver" in window) {
@@ -31,9 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("[data-reveal]").forEach((item) => item.classList.add("is-visible"));
   }
 
-  // Busca do glossário: simples, rápida e sem depender de servidor.
+  // Busca do glossário e da central de materiais: tudo acontece no navegador.
   const input = document.getElementById("searchInput");
-  const cards = [...document.querySelectorAll(".termo-card")];
+  const cards = [...document.querySelectorAll(".termo-card, .material-card")];
   const visible = document.getElementById("visibleCount");
   const total = document.getElementById("totalCount");
 
